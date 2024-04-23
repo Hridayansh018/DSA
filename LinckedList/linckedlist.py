@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 #CREATING NODES
 node1 = Node(10)
 node2 = Node(20)
@@ -15,6 +16,13 @@ node2.next = node3
 node3.next = node4
 #LINCKED LIST IS READY
 
+def printt(self):
+        current = head
+        while current is not None:
+            print(current.data,end="-->")
+            current = current.next
+        print("None")
+
 print(node4.next)
 
 #adding new not at beggining 
@@ -24,6 +32,7 @@ node5.next = head
 head = node5
 
 print(node5.data)
+printt(Node)
 
 #adding new not at the end
 head = node1
@@ -34,8 +43,9 @@ while current.next is not None:
 current.next = node6
 
 print(node4.next.data)
+printt(Node)
 
-#addin node at specific position
+#adding node at specific position
 node7 = Node(25)
 current = node5
 while current is not None and current.data != 20:
@@ -44,3 +54,9 @@ node7.next = current.next
 current.next = node7
 
 print(node7.data)
+printt(Node)
+
+#deleting from beggining
+if head is not None:
+    head = head.next
+printt(Node)
