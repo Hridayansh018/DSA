@@ -35,6 +35,7 @@ current.next = node6
 
 print(node4.next.data)
 
+#addin node at specific position
 node7 = Node(25)
 current = node5
 while current is not None and current.data != 20:
