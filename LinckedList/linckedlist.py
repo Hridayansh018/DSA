@@ -35,3 +35,11 @@ current.next = node6
 
 print(node4.next.data)
 
+node7 = Node(25)
+current = node5
+while current is not None and current.data != 20:
+    current = current.next
+node7.next = current.next
+current.next = node7
+
+print(node7.data)
