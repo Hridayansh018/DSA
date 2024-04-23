@@ -25,7 +25,7 @@ def printt(self):
 
 print(node4.next)
 
-#adding new not at beggining 
+#adding new node at beggining 
 head = node1
 node5 = Node(50)
 node5.next = head
@@ -34,7 +34,7 @@ head = node5
 print(node5.data)
 printt(Node)
 
-#adding new not at the end
+#adding new node at the end
 head = node1
 current = node1
 node6 = Node(60)
@@ -66,4 +66,11 @@ current = head
 while current.next.next is not None:
      current = current.next
 current.next = None
+printt(Node)
+
+#deleting from specific position
+current = head
+while current.next.next.data != 30:
+    current = current.next
+current.next = current.next.next
 printt(Node)
