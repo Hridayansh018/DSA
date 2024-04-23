@@ -60,3 +60,10 @@ printt(Node)
 if head is not None:
     head = head.next
 printt(Node)
+
+#deleting from end
+current = head
+while current.next.next is not None:
+     current = current.next
+current.next = None
+printt(Node)
