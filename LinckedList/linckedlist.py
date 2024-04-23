@@ -15,8 +15,23 @@ node2.next = node3
 node3.next = node4
 #LINCKED LIST IS READY
 
+print(node4.next)
+
 #adding new not at beggining 
 head = node1
 node5 = Node(50)
 node5.next = head
 head = node5
+
+print(node5.data)
+
+#adding new not at the end
+head = node1
+current = node1
+node6 = Node(60)
+while current.next is not None:
+    current = current.next
+current.next = node6
+
+print(node4.next.data)
+
