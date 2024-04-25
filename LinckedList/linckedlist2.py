@@ -52,7 +52,7 @@ class linckedlist:
         self.head = self.head.next
 
     #delete from end
-    def deleteB(self):
+    def deleteL(self):
         if self.head is None:
             return
         if self.head.next is None:
@@ -63,6 +63,21 @@ class linckedlist:
             Current = Current.next
         Current.next = None
 
+    #delete at specific location
+    def deleteS(self,data):
+        if self.head is None:
+            return
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        current = self.head
+        while current.next is not None and current.next.data != data:
+            current = current.next
+        if current.next is not None:
+            current.next = current.next.next
+    
+
+#creating Lincked List Instance
 ll = linckedlist()
 
 node1 = Node(20)
