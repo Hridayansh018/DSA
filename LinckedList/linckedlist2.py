@@ -15,6 +15,12 @@ class linckedlist:
             current = current.next
         print(None)
 
+    #Add node at beggining
+    def insertB(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
 ll = linckedlist()
 
 node1 = Node(20)
