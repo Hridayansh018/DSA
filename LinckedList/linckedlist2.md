@@ -153,3 +153,5 @@ ll = LinkedList()
 This code snippet demonstrates how to use the `LinkedList` class to create and manipulate a linked list.
 
 ---
+
+[code](https://github.com/Hridayansh018/DSA/blob/main/LinckedList/linckedlist2.py)
