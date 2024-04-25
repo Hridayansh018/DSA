@@ -21,6 +21,17 @@ class linckedlist:
         new_node.next = self.head
         self.head = new_node
 
+    #insert at the end
+    def insertL(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        current = self.head
+        while  current.next is not None:
+            current = current.next
+        current.next = new_node
+
 ll = linckedlist()
 
 node1 = Node(20)
