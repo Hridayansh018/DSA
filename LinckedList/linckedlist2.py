@@ -15,7 +15,7 @@ class linckedlist:
             current = current.next
         print(None)
 
-    #Add node at beggining
+    #Add node at beginning
     def insertB(self,data):
         new_node = Node(data)
         new_node.next = self.head
@@ -44,6 +44,13 @@ class linckedlist:
             current = current.next
         new_node.next = current.next
         current.next =  new_node
+
+    #delete from beginning
+    def deleteB(self):
+        if self.head is None:
+            return
+        self.head = self.head.next
+
 
 ll = linckedlist()
 
