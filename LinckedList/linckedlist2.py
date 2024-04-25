@@ -51,6 +51,17 @@ class linckedlist:
             return
         self.head = self.head.next
 
+    #delete from end
+    def deleteB(self):
+        if self.head is None:
+            return
+        if self.head.next is None:
+            self.head = None
+            return
+        Current = self.head
+        while Current.next.next is not None:
+            Current = Current.next
+        Current.next = None
 
 ll = linckedlist()
 
