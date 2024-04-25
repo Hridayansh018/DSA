@@ -33,14 +33,14 @@ class linckedlist:
         current.next = new_node
 
     #incert at specific location
-    def inceerrtS(self,data):
+    def incertS(self,data):
         new_node = Node(data)
         if self.head is None or data <= self.head.data:
             new_node.next = self.head
             self.head = new_node
             return
         current=self.head
-        while current.next is not None and current.nex.data < data:
+        while current.next is not None and current.next.data < data:
             current = current.next
         new_node.next = current.next
         current.next =  new_node
@@ -94,3 +94,45 @@ node4.next = node5
 node5.next = node6
 #Setting the head 
 ll.head = node1
+
+
+#=====================================================
+#=====================================================
+#                  TESTING
+
+ll.printt()
+
+ll.insertB(10)
+ll.printt()
+
+ll.incertS(45)
+ll.printt()
+
+ll.insertL(80)
+ll.printt()
+
+ll.deleteB()
+ll.printt()
+
+ll.deleteS(45)
+ll.printt()
+
+ll.deleteL()
+ll.printt()
+
+#=====================================================
+#=====================================================
+#                  OUTPUT
+
+'''
+20-->30-->40-->50-->60-->70-->None
+10-->20-->30-->40-->50-->60-->70-->None
+10-->20-->30-->40-->45-->50-->60-->70-->None
+10-->20-->30-->40-->45-->50-->60-->70-->80-->None     
+20-->30-->40-->45-->50-->60-->70-->80-->None
+20-->30-->40-->50-->60-->70-->80-->None
+20-->30-->40-->50-->60-->70-->None
+'''
+
+#=====================================================
+#=====================================================
