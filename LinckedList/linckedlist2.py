@@ -32,6 +32,19 @@ class linckedlist:
             current = current.next
         current.next = new_node
 
+    #incert at specific location
+    def inceerrtS(self,data):
+        new_node = Node(data)
+        if self.head is None or data <= self.head.data:
+            new_node.next = self.head
+            self.head = new_node
+            return
+        current=self.head
+        while current.next is not None and current.nex.data < data:
+            current = current.next
+        new_node.next = current.next
+        current.next =  new_node
+
 ll = linckedlist()
 
 node1 = Node(20)
