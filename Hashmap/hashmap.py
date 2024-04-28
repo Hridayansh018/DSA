@@ -46,3 +46,24 @@ class Hashtable:
             h += ord(char)
         print(h% self.MAX)
         return h% self.MAX
+
+    def __setitem__(self,key,val):
+        h = self.g_hash(key)
+        self.arr[h] = val
+        print(val)
+
+    def __getitem__(self,key):
+        h = self.g_hash(key)
+        print(self.arr[h])
+        return self.arr[h]
+    
+    def __setitem__(self,key,val):
+        h = self.g_hash(key)
+        found = False
+        for idx, element in enumerate(self.arr[h]):
+            if len(element)==2 and element[0]==key:
+                self.arr[h][idx] = (key,val)
+                found = True
+                break
+        if not found:
+            self.arr[h].append(key,val)
