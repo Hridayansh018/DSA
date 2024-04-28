@@ -67,3 +67,12 @@ class Hashtable:
                 break
         if not found:
             self.arr[h].append(key,val)
+
+t = Hashtable()
+t["march 6"] = 130
+t["march 7"] = 30
+t["march 9"] = 70
+t["march 3"] = 95
+t["dec 6"] = 98
+
+print(t.arr)
