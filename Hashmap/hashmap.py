@@ -57,16 +57,19 @@ class Hashtable:
         print(self.arr[h])
         return self.arr[h]
     
-    def __setitem__(self,key,val):
+    def __setitem__(self, key, val):
         h = self.g_hash(key)
-        found = False
-        for idx, element in enumerate(self.arr[h]):
-            if len(element)==2 and element[0]==key:
-                self.arr[h][idx] = (key,val)
-                found = True
-                break
-        if not found:
-            self.arr[h].append(key,val)
+        if self.arr[h] is None:
+            self.arr[h] = [(key, val)]
+        else:
+            found = False
+            for idx, element in enumerate(self.arr[h]):
+                if len(element) == 2 and element[0] == key:
+                    self.arr[h][idx] = (key, val)
+                    found = True
+                    break
+            if not found:
+                self.arr[h].append((key, val))
 
 t = Hashtable()
 t["march 6"] = 130
