@@ -17,6 +17,7 @@ with open("stock_prices.csv","r") as f:
 
 print(stock_price)
 ```
+
 ```
 
 ## Accessing Prices for Specific Days
@@ -27,6 +28,7 @@ The code then iterates over each element in the `stock_price` list. If the day m
 for element in stock_price:
     if element[0] == "march 9":
         print(element[1])
+        
 ```
 
 ## Using Dictionary to Store Stock Prices
