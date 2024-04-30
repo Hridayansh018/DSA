@@ -71,11 +71,19 @@ class Hashtable:
             if not found:
                 self.arr[h].append((key, val))
 
-t = Hashtable()
-t["march 6"] = 130
-t["march 7"] = 30
-t["march 9"] = 70
-t["march 3"] = 95
-t["dec 6"] = 98
+    def __delitem__(self, key):
+        h = self.g_hash(key)
+        if self.arr[h] is not None:
+            for idx, element in enumerate(self.arr[h]):
+                if len(element) == 2 and element[0] == key:
+                    del self.arr[h][idx]
+                    return
 
-print(t.arr)
+h = Hashtable()
+h["march 6"] = 130
+h["march 7"] = 30
+h["march 9"] = 70
+h["march 3"] = 95
+h["dec 6"] = 98
+del h["march 7"]
+print(h.arr)
