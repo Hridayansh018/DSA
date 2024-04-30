@@ -17,6 +17,7 @@ with open("stock_prices.csv","r") as f:
 
 print(stock_price)
 ```
+```
 
 ## Accessing Prices for Specific Days
 
