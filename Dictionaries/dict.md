@@ -1,129 +1,29 @@
-```
+# Explanation of Code
 
-```markdown
-# Explanation of Python Code
+This markdown document explains the functionality of the provided Python code without including the code itself.
 
 ## Reading Stock Prices from CSV
 
-The code begins by reading stock prices from a CSV file named `stock_prices.csv`. It first initializes an empty list called `stock_price`. Then, it reads each line from the file, splits it by comma (`,`) to separate the day and price tokens, converts the price to a float, and appends the day and price as a list `[day, price]` to the `stock_price` list. After reading all lines, it prints the `stock_price`.
-
-```python
-stock_price = []
-with open("stock_prices.csv","r") as f:
-    for line in f:
-        tokens = line.split(",")
-        day = tokens[0]
-        price = float(tokens[1])
-        stock_price.append([day,price])
-
-print(stock_price)
-```
-
-```
+The code starts by reading stock prices from a CSV file named "stock_prices.csv". It parses each line of the file, splitting it by commas to extract the day and price tokens. The day is stored as a string and the price as a floating-point number, and then appended as a pair `[day, price]` to the `stock_price` list.
 
 ## Accessing Prices for Specific Days
 
-The code then iterates over each element in the `stock_price` list. If the day matches `"march 9"`, it prints the corresponding price.
+After reading the stock prices, the code iterates through the list `stock_price` to find the price associated with the day "march 9". If the day matches, it prints the corresponding price.
 
-```python
-for element in stock_price:
-    if element[0] == "march 9":
-        print(element[1])
+## Storing Stock Prices in a Dictionary
 
-```
-
-## Using Dictionary to Store Stock Prices
-
-Next, the code uses a dictionary `stock_price` to store stock prices. It reads each line from the CSV file similarly to the previous method but instead stores the day as a key and the price as the corresponding value in the dictionary.
-
-```python
-stock_price = {}
-with open("stock_prices.csv","r") as f:
-    for line in f:
-        tokens = line.split(",")
-        day = tokens[0]
-        price = float(tokens[1])
-        stock_price[day] = price
-
-print(stock_price["march 9"])
-```
+Alternatively, the code also demonstrates storing stock prices in a dictionary named `stock_price`. It follows a similar approach to reading the CSV file but uses the day as the key and the price as the value in the dictionary.
 
 ## Simple Hash Function
 
-The code defines a simple hash function `get_hash()` that takes a key as input and returns a hash value based on the ASCII values of its characters. The hash value is then modulo 100 to limit it within a specific range.
-
-```python
-def get_hash(key):
-    h = 0 
-    for char in key:
-        h += ord(char)
-    print(h % 100) 
-    return 
-    
-
-get_hash("a")
-get_hash("b")
-get_hash("march 6")
-```
+The code defines a simple hash function `get_hash()` that calculates a hash value based on the ASCII values of the characters in the input key. The hash value is then modulo 100 to limit it within a specific range.
 
 ## Implementation of Hashtable
 
-Finally, the code implements a basic hashtable `Hashtable` using a list to store key-value pairs. It has methods `__setitem__` and `__getitem__` for setting and getting values based on keys, respectively. The `g_hash()` method is used internally to generate a hash value for a given key.
-
-```python
-class Hashtable:
-    def __init__(self):
-     self.MAX = 100
-     self.arr = [None for i in range(self.MAX)]
-
-    def g_hash(self,key):
-        h = 0 
-        for char in key:
-            h += ord(char)
-        print(h % self.MAX)
-        return h % self.MAX
-
-    def __setitem__(self,key,val):
-        h = self.g_hash(key)
-        self.arr[h] = val
-        print(val)
-
-    def __getitem__(self,key):
-        h = self.g_hash(key)
-        print(self.arr[h])
-        return self.arr[h]
-```
-
-The `__setitem__` method handles collisions by chaining. If there is already a value for the calculated hash, it appends the new key-value pair to the list at that index.
-
-```python
-def __setitem__(self, key, val):
-    h = self.g_hash(key)
-    if self.arr[h] is None:
-        self.arr[h] = [(key, val)]
-    else:
-        found = False
-        for idx, element in enumerate(self.arr[h]):
-            if len(element) == 2 and element[0] == key:
-                self.arr[h][idx] = (key, val)
-                found = True
-                break
-        if not found:
-            self.arr[h].append((key, val))
-```
+The code implements a basic hashtable named `Hashtable`. It initializes an array (`arr`) of a fixed size (`MAX`) to store key-value pairs. The `g_hash()` method generates a hash value for a given key. It provides methods `__setitem__`, `__getitem__`, and `__delitem__` for setting, getting, and deleting key-value pairs, respectively.
 
 ## Testing Hashtable
 
-The code creates an instance of the `Hashtable` class and sets and gets some key-value pairs to demonstrate its functionality.
+The code creates an instance of the `Hashtable` class and sets several key-value pairs to demonstrate its functionality. It also deletes a key-value pair to showcase the deletion operation.
 
-```python
-t = Hashtable()
-t["march 6"] = 130
-t["march 7"] = 30
-t["march 9"] = 70
-t["march 3"] = 95
-t["dec 6"] = 98
-
-print(t.arr)
-```
-```
+This markdown document provides a comprehensive explanation of the code's functionality and structure, aiding in understanding without directly displaying the Python code.
