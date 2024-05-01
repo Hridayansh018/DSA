@@ -66,7 +66,7 @@ class linckedlist:
         if self.head is None:
             return
         self.head = self.head.next
-        self.size -+ 1
+        self.size -= 1
     
     def delL(self):
         if self.head is None:
