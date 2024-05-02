@@ -9,6 +9,7 @@ class linckedlist:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.size = 0
     
     def prt(self):
         if self.head is None:
@@ -24,9 +25,8 @@ class linckedlist:
         while currentB is not None:
             outB += f"{currentB.data}<===>"
             currentB = currentB.previous
-        if node1.previous is None:
-            print(f"None<===>{outF}{outB}None")
-
+        if self.head.previous is None:
+            print(f"None<===>{outF}None")
 
     def connect(self, node1, node2):
         if node1 is None or node2 is None:
@@ -37,6 +37,31 @@ class linckedlist:
             self.head = node1
         self.tail = node2
 
+    def get_length(self):
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+        return count
+    
+    def insB(self,data):
+        new_node = Node(data, next=self.head)
+        if self.head is not None:
+            self.head.previous = new_node
+        self.head = new_node
+        if self.tail is None:
+            self.tail = new_node
+        self.size += 1
+
+    def insL(self,data):
+        new_node = Node(data, previous=self.tail)
+        if self.tail is not None:
+            self.tail.next = new_node
+        self.tail = new_node
+        if self.head is None:
+            self.head = new_node
+        self.size += 1
 
 ll = linckedlist()
 
@@ -55,4 +80,10 @@ ll.connect(node4, node5)
 ll.connect(node5, node6)
 ll.connect(node6, node7)
 
+ll.prt()
+
+ll.insB(10)
+ll.prt()
+
+ll.insL(90)
 ll.prt()
