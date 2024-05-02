@@ -1,3 +1,5 @@
+#Working with doubly lincked list 
+
 class Node:
     def __init__(self,data = None, next = None, previous = None):
         self.data = data
@@ -63,6 +65,69 @@ class linckedlist:
             self.head = new_node
         self.size += 1
 
+    def insS(self,data,index):
+        if index < 0 or index > self.get_length():
+            raise Exception("Invalid Index")
+        if index == 0:
+            self.insB(data)
+            return
+        count = 0
+        current = self.head
+        while current:
+            if count == index - 1:
+                new_node = Node(data,current.next,current)
+                current.next.previous = new_node
+                current.next = new_node
+                self.size += 1
+                break
+            current = current.next
+            count += 1
+
+    def delB(self):
+            if self.head is None:
+                return
+            if self.head.next is None:
+                self.head = None
+                self.tail = None
+                self.size = 0
+                return
+            self.head = self.head.next
+            self.head.previous = None
+            self.size -= 1
+            
+    def delL(self):
+        if self.tail is None:
+            return
+        if self.tail.previous is None:
+            self.head = None
+            self.tail = None
+            self.size = 0
+            return
+        self.tail = self.tail.previous
+        self.tail.next = None
+        self.size = 0
+
+    def delS(self,index):
+        if index < 0 or index > self.get_length():
+            raise Exception("Invalid Index")
+        if index == 0:
+            self.delB()
+            return
+        if index == self.get_length() - 1:
+            self.delL()
+            return
+        count = 0
+        current = self.head
+        while current:
+            if count == index:
+                current.previous.next = current.next
+                current.next.previous = current.previous
+                self.size -= 1
+                break
+            current = current.next
+            count += 1
+                            
+
 ll = linckedlist()
 
 node1 = Node(20)
@@ -86,4 +151,16 @@ ll.insB(10)
 ll.prt()
 
 ll.insL(90)
+ll.prt()
+
+ll.insS(45,4)
+ll.prt()
+
+ll.delB()
+ll.prt()
+
+ll.delL()
+ll.prt()
+
+ll.delS(3)
 ll.prt()
