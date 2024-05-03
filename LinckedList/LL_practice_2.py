@@ -6,7 +6,6 @@ class Node:
         self.next = next
         self.previous = previous
 
-
 class linckedlist:
     def __init__(self):
         self.head = None
@@ -127,7 +126,6 @@ class linckedlist:
             current = current.next
             count += 1
                             
-
 ll = linckedlist()
 
 node1 = Node(20)
