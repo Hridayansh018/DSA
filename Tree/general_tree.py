@@ -34,6 +34,19 @@ def build_tree():
     Laptop.add_child(TreeNode("victus"))
     Laptop.add_child(TreeNode("ROG TUF"))
     root.add_child(Laptop)
+
+    Cellphone = TreeNode("Cellphone")
+    Cellphone.add_child(TreeNode("Redmi"))
+    Cellphone.add_child(TreeNode("Poco"))
+    Cellphone.add_child(TreeNode("Smasung"))
+    root.add_child(Cellphone)
+
+    tv = TreeNode("TV")
+    tv.add_child(TreeNode("Samsung"))
+    tv.add_child(TreeNode("LG"))
+    tv.add_child(TreeNode("Realme"))
+    root.add_child(tv)
+
     return root
 
 tree_root = build_tree()
