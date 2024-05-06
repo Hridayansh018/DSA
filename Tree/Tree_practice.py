@@ -1,4 +1,4 @@
-# Tree Data Structre Practice
+# Tree Data Structre Practice, creating tree with user input
 
 class TreeNode:
     def __init__(self,data):
@@ -25,7 +25,6 @@ class TreeNode:
         if self.children:
             for child in self.children:
                 child.printTree()
-
 
 def build_Tree():
     data = input("Enter the name of Tree:- ")
