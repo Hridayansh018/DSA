@@ -46,7 +46,7 @@ if __name__ == "__main__":
         if data.lower() == 'done':
             break
         try:
-            tree.insert_with_increment(int(data) + 1)  # Increment data value by 1
+            tree.insert_with_increment(int(data))  # Increment data value by 1
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
             continue
