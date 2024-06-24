@@ -87,5 +87,3 @@ h["march 3"] = 95
 h["dec 6"] = 98
 del h["march 7"]
 print(h.arr)
-
-#hehe
